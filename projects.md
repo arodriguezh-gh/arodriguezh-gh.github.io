@@ -7,3 +7,5 @@ I practiced initializing repositories, cloning, committing, and pushing code, wh
 
 I also collaborated with teammates through branching, pull requests, and conflict resolution.  
 Finally, I set up a personal website with GitHub Pages to showcase my work.
+
+🔙 [Back to Home](index.md)
