@@ -8,6 +8,7 @@ I am currently studying the **Master of Development Engineering at UC Berkeley**
 ---
 
 ## Experience & Projects
+👉 Check out my [Projects](projects.md) to see what I’ve been working on!
 
 ### 🌍 Remote Consulting for Nonprofits
 - Data analysis, financial and performance consultant for development-oriented organizations in the U.S.  
