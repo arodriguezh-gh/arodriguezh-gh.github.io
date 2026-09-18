@@ -32,8 +32,25 @@
     <!-- =========================================================
          NAVIGATION
          ========================================================= -->
-    <nav aria-label="Main navigation">
-        <ul>
+    <nav class="site-nav" aria-label="Main navigation">
+
+        <!-- Hidden checkbox controls whether mobile menu is open -->
+        <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-hidden="true"
+        >
+
+        <!-- Hamburger icon -->
+        <label for="menu-toggle" class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Navigation links -->
+        <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#values">Values</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -41,6 +58,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+
     </nav>
 
 

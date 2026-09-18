@@ -60,6 +60,37 @@ nav a:hover {
     background-color: #667eea;
     color: white;
 }
+/* =========================================================
+   HAMBURGER MENU
+   ========================================================= */
+
+/* Hidden checkbox that controls the mobile menu */
+.menu-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hamburger exists on desktop but is hidden */
+.hamburger {
+    display: none;
+    width: 28px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+/* The three hamburger lines */
+.hamburger span {
+    display: block;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: 0.2s;
+}
+
 main {
     max-width: 800px;
     margin: 2rem auto;
@@ -114,3 +145,64 @@ button {
 /* Form styles - to be added when we introduce forms */
 
 /* Footer styles - to be added */
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+    /* Needed so the dropdown can position itself relative to nav */
+    nav {
+        position: relative;
+        padding: 0.75rem 0;
+    }
+
+    /* GUIDE 1: hide the horizontal nav by default on small screens */
+    nav ul {
+        display: none;
+    }
+
+    /* GUIDE 2: Show the hamburger on small screens */
+    .hamburger {
+        display: block;
+    }
+
+    /* GUIDE 3: Reveal nav when toggled (use ~ combinator) <menu when checkbox is checked> */
+    #menu-toggle:checked ~ ul {
+        display: flex;
+    }
+
+    /* GUIDE 4: style nav as vertical panel */
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        background-color: white;
+        padding: 0.75rem 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/*  Animation */
+#menu-toggle:checked + .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+#menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
+#menu-toggle:checked + .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
