@@ -1,576 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Alejandro Rodríguez | Development Engineering & Data</title>
-
-    <meta
-        name="description"
-        content="Personal portfolio of Alejandro Rodríguez, a multidisciplinary engineer working at the intersection of technology, data, development, and social impact."
-    >
-
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Alejandro Rodríguez: data, systems, policy, and development. Selected work in agroecology, climate finance, and mission-driven organizations.">
+    <meta name="theme-color" content="#163A43">
+    <title>Alejandro Rodríguez | Data, Systems & Development</title>
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Data loads first; both scripts wait for the HTML. -->
+    <script src="js/data.js" defer></script>
+    <script src="js/display.js" defer></script>
 </head>
-
-<body>
-
-    <!-- =========================================================
-         HEADER / HERO
-         ========================================================= -->
-    <header>
-        <h1>Alejandro Rodríguez</h1>
-
-        <p class="tagline">
-            Development Engineering · AI & Data Analytics · Social Impact
-        </p>
+<body class="home-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="container nav-shell">
+            <a class="brand" href="index.html" aria-label="Alejandro Rodríguez, home" data-owner="name">Alejandro Rodríguez</a>
+            <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span class="menu-icon" aria-hidden="true"></span></button>
+            <nav id="site-navigation" class="site-navigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#background">Background</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a class="nav-projects" href="projects.html">Projects <span aria-hidden="true">↗</span></a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
-
-    <!-- =========================================================
-         NAVIGATION
-         ========================================================= -->
-    <nav class="site-nav" aria-label="Main navigation">
-
-        <!-- Hidden checkbox controls whether mobile menu is open -->
-        <input
-            type="checkbox"
-            id="menu-toggle"
-            class="menu-toggle"
-            aria-hidden="true"
-        >
-
-        <!-- Hamburger icon -->
-        <label for="menu-toggle" class="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
-        <!-- Navigation links -->
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#values">Values</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-    </nav>
-
-
-    <!-- =========================================================
-         MAIN CONTENT
-         ========================================================= -->
-    <main>
-
-        <!-- =====================================================
-             WHO I AM
-             ===================================================== -->
-        <section id="about">
-            <h2>Who I Am</h2>
-
-            <p>
-                I am a <strong>multidisciplinary engineer and problem solver</strong>
-                working at the intersection of technology, data, organizations,
-                and social impact.
-            </p>
-
-            <p>
-                I am currently completing a
-                <strong>Master of Development Engineering at UC Berkeley</strong>,
-                where I am learning to apply AI, data analytics, big data, and
-                emerging technologies to development challenges in complex and
-                resource-constrained contexts.
-            </p>
-
-            <p>
-                My engineering background has taught me to approach problems
-                analytically; my experience in consulting and mission-driven
-                organizations has taught me that effective solutions also require
-                understanding people, institutions, and context.
-            </p>
-
-            <p>
-                I am interested in
-                <strong>
-                    technology for social impact, sustainable development,
-                    AI and data, systems thinking, and human-centered
-                    problem solving
-                </strong>.
-            </p>
-        </section>
-
-
-        <!-- =====================================================
-             WHAT I VALUE
-             ===================================================== -->
-        <section id="values">
-            <h2>What I Value</h2>
-
-            <div class="values-grid">
-
-                <article class="value-card">
-                    <h3>Human-Centered Problem Solving</h3>
-                    <p>
-                        Solutions should respond to the needs, realities, and
-                        constraints of the people and organizations they are
-                        designed to serve.
-                    </p>
-                </article>
-
-                <article class="value-card">
-                    <h3>Evidence &amp; Data</h3>
-                    <p>
-                        I believe better information and analysis can lead to
-                        better decisions, stronger programs, and more effective
-                        development interventions.
-                    </p>
-                </article>
-
-                <article class="value-card">
-                    <h3>Systems Thinking</h3>
-                    <p>
-                        Complex problems rarely have a single cause or solution.
-                        I look for connections between people, institutions,
-                        technology, and the wider system.
-                    </p>
-                </article>
-
-                <article class="value-card">
-                    <h3>Responsible Technology</h3>
-                    <p>
-                        Technology is a tool, not an end in itself. Its value
-                        comes from how well it responds to real needs and creates
-                        meaningful outcomes.
-                    </p>
-                </article>
-
-                <article class="value-card">
-                    <h3>Building Capacity</h3>
-                    <p>
-                        I value solutions that strengthen organizations and
-                        people, allowing impact to continue beyond a single
-                        project.
-                    </p>
-                </article>
-
+    <main id="main-content" tabindex="-1">
+        <section class="container hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow" data-hero="label">Data · Systems · Policy · Development</p>
+                <h1 id="hero-title"><span data-hero="headline">Understanding systems.</span> <em data-hero="emphasis">Expanding opportunity.</em></h1>
+                <p id="focus" class="hero-lead" data-owner="introduction">I'm Alejandro, a Colombian engineer working at the intersection of data, technology, public policy, and development.</p>
+                <div class="button-row">
+                    <a class="button" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
+                    <a class="text-link" href="assets/CVAlejandroRodriguezHernandez09072026.pdf" data-cv>View CV</a>
+                </div>
             </div>
         </section>
-
-
-        <!-- =====================================================
-             EXPERIENCE / WHAT I'VE DONE
-             ===================================================== -->
-        <section id="experience">
-            <h2>What I've Done</h2>
-
-            <p>
-                My work has taken me across
-                <strong>
-                    development consulting, public policy, nonprofit operations,
-                    education, sustainability, and data analytics
-                </strong>.
-            </p>
-
-            <p>
-                <a href="projects.html">Explore selected projects →</a>
-            </p>
-
-
-            <!-- Development Consulting -->
-            <article class="experience-card">
-                <h3>🌱 Development Consulting — Colombia</h3>
-
-                <p>
-                    At <strong>Oportunidad Estratégica</strong>, I worked on
-                    development projects involving government, private
-                    organizations, academia, and civil society.
-                </p>
-
-                <p>My projects included:</p>
-
-                <ul>
-                    <li>
-                        <strong>Bioeconomy &amp; Territory Mission</strong> —
-                        scientific and technological surveillance, foresight,
-                        stakeholder engagement, and strategic roadmaps for
-                        Colombia's bioeconomy policy.
-                    </li>
-
-                    <li>
-                        <strong>INVIMA Institutional Strengthening</strong> —
-                        participatory diagnosis, international benchmarking,
-                        and recommendations for regulatory improvement.
-                    </li>
-
-                    <li>
-                        <strong>Higher Education Financial Sustainability</strong>
-                        — applied research and analysis for ASCUN.
-                    </li>
-
-                    <li>
-                        <strong>ICC World Chambers Federation</strong> —
-                        participatory strategic planning and impact-network
-                        analysis.
-                    </li>
-
-                    <li>
-                        Strategic planning and development projects related to
-                        <strong>
-                            social security, energy access, SMEs, education,
-                            and sustainability
-                        </strong>.
-                    </li>
-                </ul>
-
-                <p>
-                    These experiences taught me to work across disciplines and
-                    translate research, data, and stakeholder perspectives into
-                    development strategies.
-                </p>
-            </article>
-
-
-            <!-- New York Sun Works -->
-            <article class="experience-card">
-                <h3>📊 Data &amp; Performance — New York Sun Works</h3>
-
-                <p>
-                    At <strong>New York Sun Works</strong>, I developed Business
-                    Intelligence solutions to improve the organization's
-                    performance monitoring and operations.
-                </p>
-
-                <p>
-                    I designed dynamic dashboards, developed metrics, cleaned and
-                    structured data, and created workflows for data collection
-                    and reporting.
-                </p>
-
-                <p>
-                    The work supported an organization serving approximately
-                    <strong>
-                        320 schools, 1,400 teachers, and 140,000 K–12 students
-                        annually
-                    </strong>,
-                    helping improve resource allocation, program monitoring,
-                    and impact assessment.
-                </p>
-
-                <p>
-                    <a href="projects.html">View project →</a>
-                </p>
-            </article>
-
-
-            <!-- Association House -->
-            <article class="experience-card">
-                <h3>⚙️ Nonprofit Operations — Association House of Chicago</h3>
-
-                <p>
-                    At <strong>Association House of Chicago</strong>, I worked on
-                    financial and operational processes supporting programs for
-                    underserved communities.
-                </p>
-
-                <p>
-                    I redesigned workflows, developed financial reporting
-                    systems, and created automations to improve organizational
-                    efficiency and capacity.
-                </p>
-
-                <p>
-                    This experience reinforced my belief that improving the
-                    systems behind a nonprofit can increase the organization's
-                    ability to deliver its social mission.
-                </p>
-
-                <p>
-                    <a href="projects.html">View project →</a>
-                </p>
-            </article>
-
-
-            <!-- Community Experience -->
-            <article class="experience-card">
-                <h3>🤝 Community &amp; Experiential Education</h3>
-
-                <p>
-                    My commitment to social impact also comes from experiences
-                    outside formal employment.
-                </p>
-
-                <p>
-                    Through
-                    <strong>
-                        Soñar Despierto, Off Bound Adventures, Proyecto Vida,
-                        and Progresa Fenicia
-                    </strong>,
-                    I worked with vulnerable children and youth, rural
-                    communities, and communities experiencing social and
-                    economic challenges.
-                </p>
-
-                <p>
-                    These experiences shaped the way I understand development:
-                    solutions must be grounded in the realities of the
-                    communities they seek to serve.
-                </p>
-            </article>
-
-        </section>
-
-
-        <!-- =====================================================
-             EDUCATION
-             ===================================================== -->
-        <section id="education">
-            <h2>Education</h2>
-
-
-            <!-- UC Berkeley -->
-            <article class="education-card">
-                <h3>University of California, Berkeley</h3>
-
-                <p>
-                    <strong>Master of Development Engineering</strong><br>
-                    2025–2026
-                </p>
-
-                <p>
-                    Focus:
-                    <strong>AI &amp; Data Analytics for Social Impact</strong>
-                </p>
-            </article>
-
-
-            <!-- Universidad de los Andes -->
-            <article class="education-card">
-                <h3>Universidad de los Andes, Colombia</h3>
-
-                <p>
-                    <strong>
-                        Biomedical Engineering &amp; Industrial Engineering
-                    </strong>
-                </p>
-
-                <p>Foundations in:</p>
-
-                <ul>
-                    <li>Data analytics and statistics</li>
-                    <li>Programming</li>
-                    <li>Computational modeling and simulation</li>
-                    <li>Optimization</li>
-                    <li>Human-centered design</li>
-                    <li>Complex systems</li>
-                </ul>
-            </article>
-
-        </section>
-
-
-        <!-- =====================================================
-             CURRENT FOCUS
-             ===================================================== -->
-        <section id="focus">
-            <h2>Current Focus</h2>
-
-            <p>
-                I am currently exploring how
-                <strong>
-                    AI, data, and systems thinking can strengthen organizations
-                    and improve development outcomes
-                </strong>.
-            </p>
-
-            <p>
-                My goal is to work on problems where technology can create
-                practical improvements in areas such as:
-            </p>
-
-            <ul class="focus-list">
-                <li>Social Impact</li>
-                <li>Climate &amp; Sustainability</li>
-                <li>Healthcare</li>
-                <li>Education</li>
-                <li>Public Systems</li>
-                <li>Organizational Capacity</li>
-            </ul>
-        </section>
-
-
-        <!-- =====================================================
-             SKILLS
-             ===================================================== -->
-        <section id="skills">
-            <h2>Skills</h2>
-
-
-            <!-- Technical Skills -->
-            <article class="skills-group">
-                <h3>Technical</h3>
-
-                <ul class="skills-list">
-                    <li>Data Analytics</li>
-                    <li>Artificial Intelligence</li>
-                    <li>Programming</li>
-                    <li>Statistics</li>
-                    <li>Computational Modeling</li>
-                    <li>Simulation</li>
-                    <li>Optimization</li>
-                    <li>Business Intelligence</li>
-                </ul>
-            </article>
-
-
-            <!-- Problem Solving Skills -->
-            <article class="skills-group">
-                <h3>Problem Solving</h3>
-
-                <ul class="skills-list">
-                    <li>Systems Thinking</li>
-                    <li>Human-Centered Design</li>
-                    <li>Applied Research</li>
-                    <li>Strategic Planning</li>
-                    <li>Process Improvement</li>
-                    <li>Stakeholder Engagement</li>
-                </ul>
-            </article>
-
-
-            <!-- Languages -->
-            <article class="skills-group">
-                <h3>Languages</h3>
-
-                <ul class="skills-list">
-                    <li>Spanish — Native</li>
-                    <li>English</li>
-                </ul>
-            </article>
-
-        </section>
-
-
-        <!-- =====================================================
-             CONTACT
-             ===================================================== -->
-        <!-- =====================================================
-        ===================================================== -->
-        <section id="contact">
-            <h2>Contact</h2>
-
-            <p>
-                Interested in connecting, collaborating, or learning more about my work?
-                Feel free to reach out.
-            </p>
-
-            <!-- Direct Contact Links -->
-            <div class="contact-links">
-
-                <p>
-                    📧
-                    <a href="mailto:a_rodriguezh@berkeley.edu">
-                        a_rodriguezh@berkeley.edu
-                    </a>
-                </p>
-
-                <p>
-                    🌐
-                    <a
-                        href="https://www.linkedin.com/in/alejandrorodriguezhern%C3%A1ndez/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        LinkedIn
-                    </a>
-                </p>
-
-                <p>
-                    📄
-                    <a
-                        href="YOUR-CV-FILE.pdf"
-                        target="_blank"
-                    >
-                        View / Download CV
-                    </a>
-                </p>
-
+        <section id="about" class="section about-section" aria-labelledby="about-title">
+            <div class="container about-layout">
+                <div id="about-portrait" class="about-portrait"></div>
+                <div class="about-copy"><h2 id="about-title">Hi, I’m Alejandro.</h2><div id="about-content" class="prose"></div></div>
+                <div class="education-statement"><p class="eyebrow">What is Development Engineering?</p><p id="development-definition" class="definition"></p></div>
             </div>
-
-
-            <!-- Contact Form -->
-            <form action="#" method="post" class="contact-form">
-
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                    >
-                </div>
-
-
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                    >
-                </div>
-
-
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-
-                    <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                    >
-                </div>
-
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        required
-                    ></textarea>
-                </div>
-
-
-                <button type="submit">
-                    Send Message
-                </button>
-
-            </form>
         </section>
-
+        <div id="background" class="background-group">
+        <section id="education" class="section background-section" aria-labelledby="education-title">
+            <div class="container">
+                <header class="section-heading"><h2 id="education-title">Education & background</h2>
+                    <nav class="section-links" aria-label="Background sections"><a href="#education">Education</a><a href="#values">What guides my work</a><a href="#skills">Methods & capabilities</a></nav>
+                </header>
+                <div id="education-list" class="education-grid"></div>
+            </div>
+        </section>
+            <div id="community-content" class="container community-story"></div>
+        <section id="values" class="section principles-section" aria-labelledby="values-title">
+            <div class="container editorial-grid">
+                <header class="section-intro"><h2 id="values-title">What guides<br>my work</h2><p class="disclosure-hint">Open a principle to read more.</p></header>
+                <ol id="principles-list" class="principles-list"></ol>
+            </div>
+        </section>
+        <section id="skills" class="section skills-section" aria-labelledby="skills-title">
+            <div class="container"><header class="section-heading"><h2 id="skills-title">Methods & capabilities</h2><p class="disclosure-hint">Explore a field.</p></header><div id="skills-list" class="skills-grid"></div></div>
+        </section>
+        </div>
+        <section id="work" class="section work-section" aria-labelledby="work-title">
+            <div class="container">
+                <header class="section-heading"><h2 id="work-title">Selected work</h2><a class="text-link" href="projects.html">All case studies <span aria-hidden="true">↗</span></a></header>
+                <div id="selected-work" class="selected-grid"></div>
+                <noscript><p>Enable JavaScript to see the work, or <a href="assets/CVAlejandroRodriguezHernandez09072026.pdf">read my CV</a>.</p></noscript>
+                <section id="experience" class="work-experience" aria-labelledby="experience-title">
+                    <header><h3 id="experience-title">Where I’ve worked</h3><a class="text-link" href="assets/CVAlejandroRodriguezHernandez09072026.pdf" data-cv>View CV</a></header>
+                    <ul id="experience-list" class="experience-list"></ul>
+                </section>
+            </div>
+        </section>
+        <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+            <div class="container contact-grid">
+                <div class="contact-intro">
+                    <p class="eyebrow">Let's connect</p>
+                    <h2 id="contact-title">Let’s continue the conversation.</h2>
+                    <p>Working on a question where I could contribute? I’d like to hear from you.</p>
+                    <address class="contact-links">
+                        <a href="mailto:a_rodriguezh@berkeley.edu" data-email>a_rodriguezh@berkeley.edu</a>
+                        <a href="https://www.linkedin.com/in/alejandrorodriguezhern%C3%A1ndez/" target="_blank" rel="noopener noreferrer" data-linkedin>LinkedIn <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
+                        <a href="assets/CVAlejandroRodriguezHernandez09072026.pdf" data-cv>View CV</a>
+                    </address>
+                </div>
+                <!-- GitHub Pages has no form backend. Keep action="#" until a real service is configured. -->
+                <form id="contact-form" class="contact-form" action="#" method="post" aria-describedby="form-note">
+                    <fieldset>
+                        <legend>Start a conversation</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your name <small>(required)</small></label>
+                                <input type="text" id="name" name="name" autocomplete="name" maxlength="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your email <small>(required)</small></label>
+                                <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject <small>(optional)</small></label>
+                            <input type="text" id="subject" name="subject" maxlength="160">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">What would you like to discuss? <small>(required)</small></label>
+                            <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
+                        </div>
+                    </fieldset>
+                    <p id="form-note" class="form-note">This form prepares an email draft. You review and send it in your email app; the website does not send or store your message.</p>
+                    <button id="prepare-email" class="button" type="submit" disabled>Prepare email draft <span aria-hidden="true">↗</span></button>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+                    <a id="email-draft" class="button button-secondary" hidden>Open draft in email app <span aria-hidden="true">↗</span></a>
+                    <noscript><p>Please use the email link to get in touch. Preparing a draft requires JavaScript.</p></noscript>
+                </form>
+            </div>
+        </section>
     </main>
-
-
-    <!-- =========================================================
-         FOOTER
-         ========================================================= -->
-    <footer>
-        <p>
-            &copy; 2026 Alejandro Rodríguez
-        </p>
-    </footer>
-
+    <footer class="site-footer"><div class="container footer-row">
+        <p>© <span data-year>2026</span> <span data-owner="name">Alejandro Rodríguez</span></p>
+        <a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>
+    </div></footer>
 </body>
-
 </html>

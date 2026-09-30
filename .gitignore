@@ -1,0 +1,6 @@
+# Local portfolio verification output and pre-update backups
+.portfolio-checks/backups/
+.portfolio-checks/*.png
+.portfolio-checks/results.*
+.portfolio-checks/*.log
+.portfolio-checks/chrome-profile/
