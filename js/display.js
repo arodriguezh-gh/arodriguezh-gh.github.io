@@ -34,7 +34,7 @@
         return null;
     }
 
-    function mediaFigure(key, extraClass = "", optional = false) {
+    function mediaFigure(key, extraClass = "", optional = false, story = null) {
         const media = portfolio.media[key];
         if (!media) return "";
         const source = assetURL(media.src);
@@ -42,7 +42,9 @@
         const placeholder = `<div class="media-placeholder"${source ? " hidden" : ""}><p class="eyebrow">Visual space</p><strong>${escapeHTML(media.role || media.alt)}</strong><small>${escapeHTML(ratios[media.shape])}</small></div>`;
         const image = source ? `<img src="${escapeHTML(source)}" alt="${escapeHTML(media.alt)}" width="${Number(media.width) || 1600}" height="${Number(media.height) || 1000}" loading="lazy" decoding="async">` : "";
         const linkedImage = source && !optional ? `<a class="media-link" href="${escapeHTML(source)}" data-enlarge aria-haspopup="dialog" aria-label="Enlarge: ${escapeHTML(media.alt)}">${image}<span class="zoom-hint" aria-hidden="true">Enlarge ↗</span></a>` : image;
-        return `<figure class="image-figure media-${escapeHTML(media.shape)} ${extraClass}" data-media="${escapeHTML(key)}"${optional ? ' data-optional="true"' : ""}><div class="media-frame">${linkedImage}${placeholder}</div>${media.caption ? `<figcaption>${escapeHTML(media.caption)}</figcaption>` : ""}</figure>`;
+        const overlay = story ? `<div class="community-overlay"><h3>${escapeHTML(story.title)}</h3></div>` : "";
+        const caption = story ? `<figcaption><blockquote><p>“${escapeHTML(story.quote)}”</p></blockquote></figcaption>` : media.caption ? `<figcaption>${escapeHTML(media.caption)}</figcaption>` : "";
+        return `<figure class="image-figure media-${escapeHTML(media.shape)} ${extraClass}" data-media="${escapeHTML(key)}"${optional ? ' data-optional="true"' : ""}><div class="media-frame">${linkedImage}${placeholder}${overlay}</div>${caption}</figure>`;
     }
 
     function homeProject(project) {
@@ -78,13 +80,50 @@
         return `<a href="${escapeHTML(safeURL)}" target="_blank" rel="noopener noreferrer">${escapeHTML(text)} <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>`;
     }
 
+    function valuesFlower() {
+        // Geometry belongs to presentation; value titles and explanations stay in data.js.
+        const petals = [
+            { path: "M300 24 C224 12 184 80 200 144 C215 195 266 222 300 252 C334 222 385 195 400 144 C416 80 376 12 300 24 Z", x: 300, y: 127 },
+            { path: "M282 278 C249 216 170 151 77 161 C12 167 2 212 16 264 C31 321 64 341 119 328 C188 348 241 318 282 278 Z", x: 129, y: 244 },
+            { path: "M318 278 C351 216 430 151 523 161 C588 167 598 212 584 264 C569 321 536 341 481 328 C412 348 359 318 318 278 Z", x: 471, y: 244 },
+            { path: "M281 307 C214 291 143 312 94 400 C58 476 68 516 127 527 C199 546 273 487 298 361 Z", x: 179, y: 438 },
+            { path: "M319 307 C386 291 457 312 506 400 C542 476 532 516 473 527 C401 546 327 487 302 361 Z", x: 421, y: 438 }
+        ];
+        return `<svg class="orchid-values" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg" role="group" aria-labelledby="orchid-title" aria-describedby="orchid-description">
+            <title id="orchid-title">Five principles that guide my work</title>
+            <desc id="orchid-description">Each orchid petal is a button. Select it, or use Tab and Enter or Space, to read a principle. Escape closes the explanation.</desc>
+            ${portfolio.principles.map((principle, index) => {
+                const petal = petals[index];
+                const lines = [];
+                for (const word of principle.title.split(" ")) {
+                    const last = lines.length - 1;
+                    if (last >= 0 && (lines[last] + " " + word).length <= 12) lines[last] += " " + word;
+                    else lines.push(word);
+                }
+                const labelY = petal.y - ((lines.length - 1) * 33) / 2;
+                return `<g class="orchid-petal" role="button" tabindex="0" aria-label="${escapeHTML(principle.title)}" aria-haspopup="dialog" aria-controls="values-dialog" aria-expanded="false" data-principle="${index}">
+                    <path d="${petal.path}" />
+                    <text x="${petal.x}" y="${labelY}" text-anchor="middle" aria-hidden="true">${lines.map((line, i) => `<tspan x="${petal.x}" dy="${i ? 33 : 0}">${escapeHTML(line)}</tspan>`).join("")}</text>
+                </g>`;
+            }).join("")}
+            <g class="orchid-core" aria-hidden="true"><path d="M266 255 C250 227 271 211 300 240 C329 211 350 227 334 255 C350 286 331 318 300 345 C269 318 250 286 266 255 Z"/><path class="orchid-lip" d="M269 305 Q300 283 331 305 Q323 341 300 355 Q277 341 269 305 Z"/><path class="orchid-vein" d="M300 260 L300 290"/></g>
+        </svg>
+        <dialog id="values-dialog" class="orchid-popup" aria-labelledby="values-dialog-title" aria-describedby="values-dialog-text">
+            <button class="orchid-close" type="button" autofocus aria-label="Close principle explanation">Close <span aria-hidden="true">×</span></button>
+            <h3 id="values-dialog-title"></h3><p id="values-dialog-text"></p>
+        </dialog>
+        <ul class="values-print" aria-hidden="true">${portfolio.principles.map(principle => `<li><h3>${escapeHTML(principle.title)}</h3><p>${escapeHTML(principle.text)}</p></li>`).join("")}</ul>`;
+    }
+
     function renderBackground() {
         renderInto("about-portrait", mediaFigure(portfolio.about.portrait, "portrait", true));
         renderInto("about-content", paragraphs(portfolio.about.paragraphs));
-        renderInto("community-content", `<p>${escapeHTML(portfolio.about.community.text)}</p><div class="community-images">${portfolio.about.community.images.map(key => mediaFigure(key)).join("")}</div>`);
+        renderInto("community-content", `<h2 id="community-title">${escapeHTML(portfolio.about.community.text)}</h2><div class="community-images">${portfolio.about.community.stories.map(story => mediaFigure(story.image, "community-figure", false, story)).join("")}</div>`);
         renderInto("development-definition", escapeHTML(portfolio.developmentEngineering));
-        renderInto("principles-list", portfolio.principles.map((item, index) => `<li><details class="principle"><summary><h3><span class="item-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>${escapeHTML(item.title)}</h3></summary><p>${escapeHTML(item.text)}</p></details></li>`).join(""));
-        renderInto("skills-list", portfolio.skills.map((group, index) => `<details class="skill-group skill-${index + 1}"><summary><h3>${escapeHTML(group.title)}</h3></summary><ul>${group.items.map(item => `<li>${escapeHTML(item)}</li>`).join("")}</ul></details>`).join(""));
+        renderInto("principles-list", valuesFlower());
+        renderInto("skills-list", portfolio.skills.map(group => `<section class="skill-group"><h3>${escapeHTML(group.title)}</h3><ul>${group.items.map(item => `<li>${escapeHTML(item)}</li>`).join("")}</ul></section>`).join(""));
+        renderInto("research-list", portfolio.research.items.map(item => `<article><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.text)}</p></article>`).join(""));
+        document.querySelectorAll("[data-research-label]").forEach(element => { element.textContent = portfolio.research.label; });
         renderInto("education-list", portfolio.education.map(item => `<article>
             ${logoMark(item.logo, "institution-mark" + (item.logoBackground === "dark" ? " mark-on-dark" : ""))}
             <h3>${escapeHTML(item.institution)}</h3>
@@ -165,6 +204,61 @@
             if (!header.contains(event.target)) { const focusWasInNavigation = navigation.contains(document.activeElement); setOpen(false); if (mobile.matches && focusWasInNavigation) button.focus(); }
         });
         mobile.addEventListener("change", () => { const focusWasInNavigation = navigation.contains(document.activeElement); setOpen(false); if (mobile.matches && focusWasInNavigation) button.focus(); });
+    }
+
+    function setupValuesFlower() {
+        const dialog = document.getElementById("values-dialog");
+        if (!dialog) return;
+        const wrap = document.getElementById("principles-list");
+        if (typeof dialog.showModal !== "function") {
+            wrap.querySelector("svg").setAttribute("hidden", "");
+            const list = wrap.querySelector(".values-print");
+            list.classList.add("values-fallback");
+            list.removeAttribute("aria-hidden");
+            document.getElementById("values-hint").hidden = true;
+            return;
+        }
+        const petals = wrap.querySelectorAll("[data-principle]");
+        let opener = null;
+        function openPrinciple(petal) {
+            const principle = portfolio.principles[Number(petal.dataset.principle)];
+            if (!principle || dialog.open) return;
+            opener = petal;
+            dialog.querySelector("h3").textContent = principle.title;
+            dialog.querySelector("p").textContent = principle.text;
+            petal.setAttribute("aria-expanded", "true");
+            dialog.showModal();
+            document.body.classList.add("orchid-dialog-open");
+        }
+        petals.forEach(petal => {
+            petal.addEventListener("click", () => openPrinciple(petal));
+            petal.addEventListener("keydown", event => {
+                if ((event.key === "Enter" || event.key === " ") && !event.repeat) {
+                    event.preventDefault();
+                    openPrinciple(petal);
+                }
+            });
+        });
+        dialog.querySelector("button").addEventListener("click", () => dialog.close());
+        dialog.addEventListener("keydown", event => {
+            if (event.key !== "Tab") return;
+            const controls = [...dialog.querySelectorAll('button, a[href], input, select, textarea, [tabindex="0"]')];
+            if (!controls.length) return;
+            event.preventDefault();
+            const current = controls.indexOf(document.activeElement);
+            const next = (current + (event.shiftKey ? -1 : 1) + controls.length) % controls.length;
+            controls[next].focus();
+        });
+        dialog.addEventListener("click", event => {
+            const rect = dialog.getBoundingClientRect();
+            if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+        });
+        // Native dialog supplies Escape and focus containment. Return to the chosen petal.
+        dialog.addEventListener("close", () => {
+            document.body.classList.remove("orchid-dialog-open");
+            opener?.setAttribute("aria-expanded", "false");
+            opener?.focus({ preventScroll: true });
+        });
     }
 
     function setupContactForm() {
@@ -251,6 +345,7 @@
     }
     updateContactDetails();
     setupNavigation();
+    setupValuesFlower();
     setupContactForm();
     setupImages();
     if (window.location.hash) {

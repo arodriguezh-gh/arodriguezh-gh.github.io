@@ -7,19 +7,28 @@ const portfolio = {
         "linkedin": "https://www.linkedin.com/in/alejandrorodriguezhern%C3%A1ndez/",
         "cvUrl": "assets/CVAlejandroRodriguezHernandez09072026.pdf",
         "location": "Colombia → Berkeley, California",
-        "introduction": "I'm Alejandro, a Colombian engineer working at the intersection of data, technology, public policy, and development."
+        "introduction": "I’m Alejandro. I use data, technology, and systems thinking to turn complex development challenges into evidence and tools for consequential decisions."
     },
     "about": {
         "paragraphs": [
-            "I’m a Colombian multidisciplinary engineer working at the intersection of data, technology, policy, and socioeconomic development. My path has moved across biomedical engineering, industrial engineering, public policy, non-profits, and development consulting, where I saw technically sound solutions falling short when they overlook human complexity.",
-            "I’m especially drawn to questions about root causes: who systems work for, who they leave behind, and how they could work differently. I value systems thinking, quantitative methods, and technology not as ends in themselves, but as tools to make wicked problems more visible and actionable.",
-            "My own experiences have also made me see development as something more nuanced than a single path of progress. I believe development should expand people’s opportunities while respecting the plurality of human ways of living, the knowledge communities already hold, and their right to shape their own futures."
+            "A multidisciplinary engineer working at the data-policy intersection to understand and support socioeconomic development. My path has moved across biomedical engineering, industrial engineering, public policy, nonprofits, and development consulting, where I saw technically sound solutions fall short when they overlooked human complexity. That perspective brought me to UC Berkeley, where I’m finishing my Master of Development Engineering, focusing on AI and Data Analytics for Social Impact.",
+            "I’m especially drawn to questions about root causes: who systems work for, who they leave behind, and how they could work differently. I value systems thinking, quantitative methods, and technology not as ends themselves, but as tools to make wicked problems like sustainability and unequal economic opportunity more visible and actionable.",
+            "My experiences taught me that social development is more nuanced than a single path of progress. I believe we should expand people’s opportunities while respecting plural ways of living, communities’ knowledge, and their right to shape their own futures.",
+            "Today I’m drawn to work in international development, philanthropy, and applied research where analytical rigor can contribute to meaningful systems change."
         ],
         "community": {
-            "text": "My community service and experiential education work shaped my social impact values early in my career.",
-            "images": [
-                "communityOne",
-                "communityTwo"
+            "text": "Early on, my community service and experiential education work shaped my social impact values.",
+            "stories": [
+                {
+                    "image": "communityOne",
+                    "title": "Mission to Serve",
+                    "quote": "The happiest will be the most loved and the kindest, the most deserving."
+                },
+                {
+                    "image": "communityTwo",
+                    "title": "Growth Mindset",
+                    "quote": "If it rains, it is our fault."
+                }
             ]
         },
         "portrait": "portrait"
@@ -550,9 +559,9 @@ const portfolio = {
         }
     ],
     "hero": {
-        "headline": "Understanding systems.",
+        "headline": "Understanding complex development challenges.",
         "emphasis": "Expanding opportunity.",
-        "label": "Data · Systems · Policy · Development"
+        "label": "Data · Technology · International Development · Public Policy"
     },
     "developmentEngineering": "DevEng is an interdisciplinary graduate field that integrates engineering and entrepreneurship with social sciences to develop scalable and innovative technology for complex challenges in low-resourced settings.",
     "media": {
@@ -725,5 +734,18 @@ const portfolio = {
             "height": 1280,
             "width": 720
         }
+    },
+    "research": {
+        "label": "Current academic interests & work",
+        "items": [
+            {
+                "title": "AI & Human Behavior",
+                "text": "Exploring critically how Generative Social Simulation could fit in international development applications and examining how LLM agents change the validation problem in agent-based modeling."
+            },
+            {
+                "title": "Universal Basic Income",
+                "text": "Annotated bibliography on UBI feasibility with a critical lens on UBI case studies in developing economies."
+            }
+        ]
     }
 };

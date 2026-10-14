@@ -6,8 +6,8 @@ The production website is `index.html` and `projects.html` at the repository roo
 
 | File | Purpose |
 | --- | --- |
-| `js/data.js` | Biography, projects, case studies, principles, education, skills, contact details, and image metadata |
-| `js/display.js` | Rendering, mobile navigation, image fallback/viewer, and email draft form |
+| `js/data.js` | Biography, projects, case studies, principles, volunteering quotes, research interests, education, skills, contact details, and image metadata |
+| `js/display.js` | Rendering, orchid interaction, mobile navigation, image fallback/viewer, and email draft form |
 | `index.html` | Homepage structure, headings, fallback hero/contact content, and form |
 | `projects.html` | Case-study page structure |
 | `css/base.css` | Palette, Satoshi, reset, typography, and accessibility defaults |
@@ -23,9 +23,9 @@ Keep HTML fallback hero/contact copy aligned with `portfolio.owner` and `portfol
 
 ## Page order and navigation
 
-The homepage runs: Hero → About (portrait and Development Engineering definition) → Background (education, community context, principles, skills) → Work (selected projects, then employers) → Contact.
+The homepage runs: Hero → About → Work (selected projects, then employers) → Background (education, a brief Development Engineering explanation, volunteering, principles, research interests, methods) → Contact.
 
-The main menu is About, Background, Work, Projects, Contact. Background links to `#background`, beginning at education; its secondary links reach education, values, and methods. Work links to `#work`; `#experience` remains available for the employer subsection. The filled Projects link opens `projects.html`, whose menu links back to the correct homepage sections.
+The main menu is About, Work, Background, Projects, Contact. Background links to `#background`, beginning at education; its secondary links reach education, volunteering, values, research, and methods. Work links to `#work`; `#experience` remains available for the employer subsection. The filled Projects link opens `projects.html`, whose menu links back to the correct homepage sections. Scroll-based active-section highlighting is still deferred.
 
 Organization URLs and logos live in `portfolio.experience`. University logos and program URLs live in `portfolio.education`. Local logo files and official source links are documented in `assets/logos/README.md`.
 
@@ -63,7 +63,29 @@ AgroRed, Greenlining, NY Sun Works, and Association House processes are accessib
 - AgroRed uses **804 initiatives** throughout production, as confirmed in the latest content iteration. The metric sits beside the flagship headline.
 - AgroRed remains in development. `caseStudy.validation` is `null`; add documented stakeholder feedback when available.
 - Greenlining concentration refers to analyzed investment volume, not verified California benefit. NY Sun Works organizational reach and Association House operational scope are not presented as attributable impact.
-- About uses the three supplied paragraphs with the Development Engineering definition below. Community service introduces the principles; principles and skills use native disclosures supporting touch and keyboard.
+- About uses the four supplied paragraphs. The Development Engineering explanation follows education in a smaller style. Volunteering introduces the principles; methods are always visible.
+
+## Volunteering, values, and research
+
+`portfolio.about.community.stories` stores each existing photo's media key, subtitle, and formative quote. The subtitles are real HTML over the photographs; quotes are semantic blockquotes in their figure captions. CSS controls the overlay treatment. Image files and meaningful alt text remain unchanged, and the full-size viewer still works.
+
+`portfolio.principles` remains the source for the five value names and explanations. `valuesFlower()` in `js/display.js` renders the orchid SVG, wraps the labels, and adds a labelled native dialog. Each petal is exposed as a button and supports click, Enter, and Space. Tab stays within the popup; Close, Escape, or a backdrop click dismisses it and returns focus to the selected petal. There are visible focus styles and a text-only fallback for browsers without native dialog support. Printed pages include all five explanations.
+
+`portfolio.research` holds two supporting items under **Research Interests**. The label **Current academic interests & work** distinguishes them from completed publications or professional projects. The section follows values and precedes methods; it is not part of the Selected Work project list.
+
+## Editorial overlaps to consider later
+
+These overlaps were identified but left unchanged, as requested:
+
+- **Hero ↔ About paragraphs 1–2:** data, technology, systems thinking, and complex development challenges appear in both the positioning statement and personal explanation.
+- **About paragraph 2 ↔ Technology in Service of People ↔ AgroRed:** technology as a useful means appears in the biography, decision principle, and practitioner-oriented project description.
+- **About paragraph 3 ↔ Human Dignity & Pluralism:** opportunities, community knowledge, voice, and self-determination carry a shared idea.
+- **About paragraphs 2 and 4 ↔ Systems Over Symptoms:** root causes and systems change recur in the professional interests and principle.
+- **Hero ↔ Evidence + Judgment ↔ Greenlining:** evidence for decisions recurs as positioning, a working principle, and a concrete research example.
+- **Capacity, Not Dependency ↔ New York Sun Works:** sustainable use appears in the principle and the reporting project's headline. This is a useful promise-and-proof connection.
+- **About paragraph 1 ↔ Education:** the Berkeley degree and AI/Data Analytics focus appear in both the narrative and credentials.
+
+Project examples often demonstrate a principle rather than merely repeat it. Any future trimming can preserve that distinction.
 
 ## Contact and CV
 
@@ -87,6 +109,6 @@ The `.portfolio-preview/` snapshot reuses root assets. Production does **not** i
 
 Run `node .portfolio-checks/verify-source.cjs .` from the repository root for dependency-free source, rendered-template, content, and local-link checks. This does not launch a browser or verify visual layout.
 
-This iteration passed 284 source/template checks and 66 headless Chrome checks at 320, 375, 720, 721, 1024, and 1440 pixels. Checks covered horizontal overflow, image decoding, Satoshi loading, mobile navigation, keyboard Escape, disclosures, image zoom, contact draft preparation/reset, project deep links, and direct `file:` preview. Desktop and mobile screenshots were also reviewed. Browser checks are development-only and are not dependencies of the public site.
+The focused October iteration is checked at 320, 375, 720, 721, 1024, and 1440 pixels. Verification covers source/template links, overflow, images, Satoshi loading, mobile navigation, all five orchid buttons, focus containment/restoration, accessible button names, printed values, visible methods, image zoom, email draft preparation/reset, project deep links, and direct `file:` preview. Desktop and mobile screenshots are reviewed separately. Browser checks are development-only and are not dependencies of the public site.
 
 The original root HTML/CSS backup is retained locally under `.portfolio-checks/backups/` and ignored by Git. Existing assets, `.vscode/`, `old index.md`, and `projects.md` are preserved. Applying this update does not commit or push it.

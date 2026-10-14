@@ -1,6 +1,6 @@
 /* Editorial type and understated controls. Navigation and form styles follow. */
 .eyebrow { margin-bottom: 1rem; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); }
-.hero h1 { margin-block: 1.75rem 2rem; font-weight: 500; line-height: 1.04; max-width: 19ch; }
+.hero h1 { margin-block: 1.75rem 2rem; font-weight: 500; line-height: 1.04; max-width: 24ch; }
 .hero h1 em, .page-intro em { color: var(--color-accent); font-weight: 400; }
 .hero h1 em { display: block; }
 .hero-lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.65; margin-bottom: 2rem; }
@@ -45,7 +45,6 @@
 .portrait img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 58%; }
 .project-sun-works .media-frame { max-height: 25rem; overflow: hidden; }
 .project-sun-works .media-frame img { width: 100%; }
-.community-images .media-frame img { width: 100%; max-height: 22rem; object-fit: contain; }
 .context-photo { max-width: 40rem; margin-top: 3rem; }
 .case-lead-image { margin-block: 2rem 3rem; }
 .case-greenlining .case-lead-image { max-width: 38rem; }
@@ -59,8 +58,8 @@
 .about-section { background: #eef1ec; }
 .about-copy h2 { margin-bottom: 2rem; }
 .prose > p { margin-bottom: 1.4rem; }
-.community-story > p { font-size: 1.2rem; line-height: 1.5; max-width: 30ch; color: var(--color-primary-dark); }
-.definition { font-size: clamp(1.4rem, 2.7vw, 2.25rem); line-height: 1.4; letter-spacing: -0.025em; color: var(--color-primary-dark); }
+.definition { font-size: clamp(1.1rem, 1.5vw, 1.25rem); line-height: 1.65; color: var(--color-text-muted); }
+.education-statement .eyebrow { margin-bottom: 0.5rem; }
 .education-grid article { padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
 .education-grid h3 { font-size: 1.2rem; font-weight: 550; }
 .education-grid p { margin-bottom: 0.4rem; font-size: 0.96rem; }
@@ -71,22 +70,11 @@
 .experience-list p { margin: 0; font-size: 0.9rem; color: var(--color-text-muted); }
 .experience-list a { font-size: 0.8rem; }
 
-/* Values: open lines of type, with native disclosures instead of hover-only text. */
+/* Values are SVG buttons; methods are always visible. */
 .principles-section { padding-top: 2rem; }
-.principles-list { list-style: none; padding: 0; margin: 0; }
-.principles-list li { margin: 0; }
-.principle { border-top: 1px solid var(--color-border); }
-.principle summary { display: grid; grid-template-columns: 1fr 1rem; align-items: baseline; gap: 1rem; padding-block: 1.6rem; }
-.principle summary::after, .skill-group summary::after { content: "+"; color: var(--color-accent); font-size: 1.25rem; font-weight: 400; }
-.principle[open] summary::after, .skill-group[open] summary::after { content: "−"; }
-.principle summary h3 { display: grid; grid-template-columns: 1.5rem 1fr; align-items: baseline; gap: 1rem; margin: 0; font-size: clamp(1.1rem, 1.8vw, 1.5rem); letter-spacing: -0.025em; }
-.item-number { color: var(--color-text-muted); font-size: 0.7rem; }
-.principle > p { margin: 0 2rem 1.5rem 2.5rem; color: var(--color-text-muted); max-width: 53ch; }
-.principle summary:hover h3, .skill-group summary:hover h3 { color: var(--color-accent); }
 .skills-section { padding-top: 2rem; }
-.skill-group { border-top: 1px solid var(--color-primary); }
-.skill-group summary { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-block: 1.3rem; }
-.skill-group h3 { font-size: 1.1rem; margin: 0; }
+.skill-group { border-top: 1px solid var(--color-primary); padding-top: 1.3rem; }
+.skill-group h3 { font-size: 1.1rem; margin-bottom: 1rem; }
 .skill-group ul { list-style: none; margin: 0 0 1.3rem; padding: 0; }
 .skill-group li { font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.35rem; }
 
@@ -387,3 +375,45 @@
 .mini-case { counter-increment: mini-case; }
 .mini-case .eyebrow::before { content: counter(mini-case, decimal-leading-zero) " / "; color: var(--color-accent); }
 .case-footer { padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+
+/* Formative photographs: HTML subtitles over the images, quotes in captions. */
+#community-title { font-size: clamp(1.2rem, 1.7vw, 1.5rem); line-height: 1.5; max-width: none; margin-bottom: 2rem; letter-spacing: -0.01em; }
+.community-figure .media-frame img { width: 100%; height: clamp(21rem, 33vw, 28rem); object-fit: cover; object-position: center 45%; }
+.community-figure:nth-child(2) { max-width: 20rem; }
+.community-figure:nth-child(2) .media-frame img { height: auto; object-fit: contain; }
+.community-overlay { position: absolute; left: 1rem; bottom: 1rem; max-width: calc(100% - 2rem); padding: 0.65rem 1rem; background: var(--color-primary-dark); color: var(--color-on-dark); pointer-events: none; }
+.community-overlay h3 { color: inherit; font-size: 1.15rem; margin: 0; }
+.community-figure .zoom-hint { top: 0.5rem; bottom: auto; }
+.community-figure figcaption { margin-top: 1rem; font-size: 1rem; max-width: 40ch; }
+.community-figure blockquote p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.25rem, 1.8vw, 1.65rem); line-height: 1.45; font-style: italic; color: var(--color-primary); }
+.community-figure.is-missing .community-overlay { position: static; display: inline-block; margin-top: 1rem; }
+
+/* An orchid in the existing palette, without a surrounding card. */
+.orchid-values-wrap { width: 100%; max-width: 44rem; margin-inline: auto; min-width: 0; }
+.orchid-values { display: block; width: 100%; height: auto; overflow: visible; }
+.orchid-petal { cursor: pointer; }
+.orchid-petal path { fill: var(--color-sage); stroke: var(--color-accent); stroke-width: 1.5; stroke-linejoin: round; transition: fill 150ms ease; }
+.orchid-petal:nth-of-type(even) path { fill: var(--color-background); }
+.orchid-petal text { fill: var(--color-primary-dark); font-family: var(--font-body); font-size: 27px; font-weight: 550; pointer-events: none; }
+.orchid-petal:hover path, .orchid-petal[aria-expanded="true"] path { fill: var(--color-primary-dark); }
+.orchid-petal:hover text, .orchid-petal[aria-expanded="true"] text { fill: var(--color-on-dark); }
+.orchid-petal:focus-visible { outline: none; }
+.orchid-petal:focus-visible path { stroke: var(--color-primary-dark); stroke-width: 5; stroke-dasharray: 8 4; }
+.orchid-core { pointer-events: none; }
+.orchid-core path { fill: var(--color-background); stroke: var(--color-accent); stroke-width: 2; }
+.orchid-core .orchid-lip { fill: var(--color-warm-accent); stroke: var(--color-primary); }
+.orchid-core .orchid-vein { fill: none; stroke: var(--color-primary); stroke-linecap: round; stroke-width: 3; }
+.orchid-popup { width: min(26rem, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto; border: 1px solid var(--color-accent); padding: 1.5rem; background: var(--color-background); color: var(--color-text); }
+.orchid-popup::backdrop { background: rgb(22 58 67 / 28%); }
+.orchid-close { display: block; margin: 0 0 1.25rem auto; padding: 0.45rem 0.7rem; min-height: 44px; border: 1px solid var(--color-border); background: transparent; color: var(--color-primary-dark); }
+.orchid-popup h3 { font-size: 1.4rem; line-height: 1.3; }
+.orchid-popup p { margin: 0; }
+body.orchid-dialog-open { overflow: hidden; }
+.values-print { display: none; }
+.values-fallback { display: block; padding-left: 1.25rem; }
+.research-heading h2 { font-size: 1.5rem; }
+.research-heading .eyebrow { margin-bottom: 0.5rem; }
+.research-heading { margin-bottom: 1.5rem; }
+.research-list article { padding-top: 1rem; border-top: 1px solid var(--color-border); }
+.research-list h3 { font-size: 1.05rem; margin-bottom: 0.65rem; }
+.research-list p { font-size: 0.95rem; color: var(--color-text-muted); max-width: 60ch; margin: 0; }
