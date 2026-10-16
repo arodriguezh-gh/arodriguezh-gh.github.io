@@ -36,6 +36,21 @@
     --page-width: 75rem;
 }
 
+/* The chosen theme changes only color tokens; the editorial layout stays shared. */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-primary-dark: #dcece5;
+    --color-primary: #a9d6ca;
+    --color-accent: #a2c9b6;
+    --color-background: #121f22;
+    --color-surface: #1b3032;
+    --color-sage: #20383a;
+    --color-text: #eef3ed;
+    --color-text-muted: #bbcdc7;
+    --color-border: #3e5957;
+    --color-warm-accent: #e0ac71;
+}
+
 *,
 *::before,
 *::after {

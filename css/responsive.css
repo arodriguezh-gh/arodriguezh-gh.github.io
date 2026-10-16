@@ -1,10 +1,14 @@
 /* The menu remains visible without JavaScript. */
 @media (max-width: 380px) {
     .brand { font-size: 0.92rem; }
-    .nav-shell { column-gap: 0.5rem; }
+    .nav-shell { column-gap: 0.35rem; }
+    .brand { font-size: 0.84rem; }
+    .menu-button { gap: 0.35rem; padding-inline: 0.4rem; }
 }
 @media (max-width: 720px) {
     .navigation-ready .site-navigation:not(.is-open) { display: none; }
+    .theme-toggle { order: 1; }
+    .site-navigation { order: 2; }
     .navigation-ready .nav-links { flex-direction: column; gap: 0; padding-block: 0.5rem; }
     .navigation-ready .nav-links a { min-height: 44px; padding-block: 0.65rem; }
 }
@@ -104,4 +108,24 @@
     .case-section, figure { break-inside: avoid; }
     details > * { display: block; }
     .project-sun-works .media-frame, .dashboard-gallery .media-frame { max-height: none; }
+}
+
+@media print {
+    :root[data-theme="dark"] {
+        color-scheme: light;
+        --color-primary-dark: #163a43;
+        --color-primary: #245b64;
+        --color-accent: #3b7d78;
+        --color-background: #ffffff;
+        --color-surface: #ffffff;
+        --color-sage: #e8efea;
+        --color-text: #263238;
+        --color-text-muted: #5d686b;
+        --color-border: #d2dcd7;
+    }
+    :root[data-theme="dark"] .about-section,
+    :root[data-theme="dark"] .contact-section { background: white; color: black; }
+    :root[data-theme="dark"] .contact-section h2,
+    :root[data-theme="dark"] .contact-section p,
+    :root[data-theme="dark"] .contact-section a { color: black; }
 }

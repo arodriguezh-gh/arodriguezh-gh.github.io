@@ -417,3 +417,41 @@ body.orchid-dialog-open { overflow: hidden; }
 .research-list article { padding-top: 1rem; border-top: 1px solid var(--color-border); }
 .research-list h3 { font-size: 1.05rem; margin-bottom: 0.65rem; }
 .research-list p { font-size: 0.95rem; color: var(--color-text-muted); max-width: 60ch; margin: 0; }
+
+/* Theme control and the few color fields that need a dark-theme treatment. */
+.theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--color-primary-dark);
+}
+.theme-toggle:hover { background: var(--color-sage); }
+.theme-icon { width: 20px; height: 20px; }
+.theme-icon-sun { display: none; }
+:root[data-theme="dark"] .theme-icon-moon { display: none; }
+:root[data-theme="dark"] .theme-icon-sun { display: block; }
+
+:root[data-theme="dark"] .about-section { background: #192b2d; }
+:root[data-theme="dark"] .button,
+:root[data-theme="dark"] .nav-links .nav-projects,
+:root[data-theme="dark"] .community-overlay,
+:root[data-theme="dark"] .mark-on-dark { background: #315f63; color: #f7f7f3; }
+:root[data-theme="dark"] .button { border-color: #315f63; }
+:root[data-theme="dark"] .button:hover,
+:root[data-theme="dark"] .nav-links .nav-projects:hover,
+:root[data-theme="dark"] .nav-links .nav-projects[aria-current="page"] { background: #3d7375; color: #f7f7f3; }
+:root[data-theme="dark"] .skip-link { background: #a9d6ca; color: #121f22; }
+:root[data-theme="dark"] .media-link:hover .zoom-hint,
+:root[data-theme="dark"] .media-link:focus-visible .zoom-hint { background: #315f63; color: #f7f7f3; }
+:root[data-theme="dark"] .zoom-viewport { background: var(--color-surface); }
+:root[data-theme="dark"] .orchid-petal:hover text,
+:root[data-theme="dark"] .orchid-petal[aria-expanded="true"] text { fill: #121f22; }
+:root[data-theme="dark"] .contact-section { background: #18383e; }
+:root[data-theme="dark"] .contact-section .button { background: #f7f7f3; border-color: #f7f7f3; color: #163a43; }
+:root[data-theme="dark"] .contact-section .button:hover { background: #e8efea; border-color: #e8efea; color: #163a43; }

@@ -1,0 +1,36 @@
+/* Official Fontshare variable fonts for the comparison pages only. */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('https://cdn.fontshare.com/wf/J2PZYZURCR7HNQKXCZ4VXYA3K5FFCCLT/PZSZLWHMBCE7FFGOUYDEU33FAESUMA3X/JFDL5FBAQ2WMYL3LGKSCZKAIFCS2UQ63.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/NWBQYJIM7GCZ5XWD7D26ARB3VDY55ZRT/K63EV2KZIGKLE7RANQ2U42S6SVHU5RJ7/X6XYTKIVDUW7GZTZPZNN4EUM5KH54KHF.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://cdn.fontshare.com/wf/3JZIFUW7KLFSPLVCIUI2DLGNIER6IFCX/MMP4RUF5LYGUAZS3DCJC3GJ6F6SAGKSN/E3NEPGEAHYCHR37DSBXHV33XCYYRE2CY.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Sentient';
+  src: url('https://cdn.fontshare.com/wf/NY2ZL3ZVCWEGOL6C3UVCNGYW5UU4EWVZ/E62VQS3OCYTBL5HEKIEGN3RTBX7KFK6F/NZPIPWPM74OTNMX6CKNACLBKCGJLJEBU.woff2') format('woff2');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sentient';
+  src: url('https://cdn.fontshare.com/wf/NX7NNT2RFBKC4E3YONV5GVZSXNHXNBGR/TWKNDFJUVBI2VY3NA2ECZKQB2A6HC7SM/6OP3OPKYYSIBJGHTOO5N77NQJC6ZBAAM.woff2') format('woff2');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: italic;
+}

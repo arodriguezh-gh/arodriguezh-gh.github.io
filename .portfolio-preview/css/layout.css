@@ -1,0 +1,34 @@
+/* Page composition. Mobile first; larger layouts are in responsive.css. */
+.container { width: min(100% - 2.5rem, 75rem); margin-inline: auto; }
+.section { padding-block: 4.5rem; }
+.hero { padding-block: 4.5rem 5rem; }
+.hero-copy { max-width: 66rem; }
+.hero-lead { max-width: 43rem; }
+.section-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+.section-heading h2, .section-heading p { margin: 0; }
+.selected-grid { display: grid; gap: 5rem; }
+.project-card { display: grid; gap: 1.5rem; min-width: 0; }
+.project-copy, .project-heading, .case-studies, .case-section, .about-copy { min-width: 0; }
+.project-copy { max-width: 60ch; }
+.about-layout, .community-story, .education-grid, .editorial-grid, .contact-grid, .case-layout, .case-grid, .media-gallery, .mini-case { display: grid; gap: 2.5rem; }
+.about-portrait { max-width: 31rem; }
+.about-copy .prose { max-width: 63ch; }
+.community-images { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.community-story { padding-top: 2rem; }
+.education-statement { margin-block: 3.5rem; max-width: 66rem; }
+.education-grid { padding-block: 2rem 3.5rem; }
+.background-experience { margin-top: 1.5rem; }
+.background-experience > header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+.skills-grid { display: grid; gap: 1.5rem; align-items: start; }
+.form-row { display: grid; }
+.footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.footer-row p { margin: 0; }
+.page-intro { padding-block: 4rem 5rem; }
+.case-layout { align-items: start; padding-bottom: 5rem; }
+.case-study + .case-study { margin-top: 6rem; }
+.case-wide { grid-column: 1 / -1; }
+.case-grid { margin-top: 3rem; }
+.dashboard-gallery { display: grid; gap: 2rem; margin-block: 2rem; }
+.mini-cases { display: grid; gap: 3rem; }
+.mini-media { display: flex; gap: 1rem; align-items: start; }
+.mini-media > figure { flex: 1; min-width: 0; }

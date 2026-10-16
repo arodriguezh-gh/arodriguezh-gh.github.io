@@ -1,0 +1,9 @@
+ README.md          |  34 [32m++++++++++++++[m[31m---[m
+ css/components.css |  66 [32m++++++++++++++++++++++++[m[31m---------[m
+ css/layout.css     |  20 [32m+++++[m[31m-----[m
+ css/responsive.css |  14 [32m++++[m[31m---[m
+ index.html         |  49 [32m+++++++++++++[m[31m------------[m
+ js/data.js         |  42 [32m++++++++++++++++[m[31m-----[m
+ js/display.js      | 105 [32m++++++++++++++++++++++++++++++++++++++++++++++++++[m[31m---[m
+ projects.html      |   2 [32m+[m[31m-[m
+ 8 files changed, 254 insertions(+), 78 deletions(-)
